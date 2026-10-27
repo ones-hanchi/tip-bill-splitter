@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip & Bill Splitter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app">
+        <header class="header">
+            <div class="logo">€</div>
+            <h1>Tip & Bill Splitter</h1>
+            <p>Partagez l'addition simplement et rapidement.</p>
+            
+        </header>
+        <section class="calculator">
+            <div class="field">
+                <label for="bill">Montant de l'addition (DT)</label>
+                <input type="number" id="bill" min="0" step="0.001"
+                    placeholder="Ex. 120.000">
+            </div>
+
+            <div class="field">
+                <label>Pourboire (%)</label>
+                <div class="tip-buttons">
+                    <button class="tip-btn" data-tip="5" type="button">5%</button>
+                    <button class="tip-btn active" data-tip="10" type="button">10%</button>
+                    <button class="tip-btn" data-tip="15" type="button">15%</button>
+                    <button class="tip-btn" data-tip="20" type="button">20%</button>
+                </div>
+
+                <label for="customTip">Ou saisir un pourcentage personnalisé</label>
+                <input type="number" id="customTip" min="0" max="1000"
+                    step="1" placeholder="Ex. 12">
+            </div>
+
+            <div class="field">
+                <label for="people">Nombre de personnes</label>
+                <div class="people-control">
+                    <button id="decreasePeople" type="button"
+                        aria-label="Diminuer le nombre de personnes">−</button>
+                    <input type="number" id="people" min="1" step="1" value="2">
+                    <button id="increasePeople" type="button"
+                        aria-label="Augmenter le nombre de personnes">+</button>
+                </div>
+            </div>
+
+            <p id="error" class="error" role="alert"></p>
+
+            <button id="calculateBtn" class="calculate-btn" type="button">
+                Calculer l'addition
+            </button>
+
+            <section class="results" aria-live="polite">
+                <h2>Résumé de l'addition</h2>
+
+                <div class="result-row">
+                    <span>Montant initial</span>
+                    <strong id="billResult">0,000 DT</strong>
+                </div>
+
+                <div class="result-row">
+                    <span>Pourboire</span>
+                    <strong id="tipResult">0,000 DT</strong>
+                </div>
+
+                <div class="result-row total-row">
+                    <span>Total à payer</span>
+                    <strong id="totalResult">0,000 DT</strong>
+                </div>
+
+                <div class="person-result">
+                    <span>Montant par personne</span>
+                    <strong id="personResult">0,000 DT</strong>
+                </div>
+
+                <div class="result-actions">
+                    <button id="copyBtn" type="button" class="secondary-btn">
+                        Copier le résultat
+                    </button>
+                    <button id="resetBtn" type="button" class="secondary-btn">
+                        Réinitialiser
+                    </button>
+                </div>
+
+                <p id="copyMessage" class="success-message" role="status"></p>
+            </section>
+        </section>
+
+        <footer>
+            <p>Tip & Bill Splitter</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
